@@ -2,12 +2,17 @@ require('colors');
 
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
-const { guardarDB } = require('./helpers/data')
+const { guardarDB, leerData } = require('./helpers/data')
+
 const main = async () => {
 
 
     const tareas = new Tareas();
+    console.log(leerData());
+
+    await pausa();
     let opcion = '';
+
 
     do {
         opcion = await inquirerMenu();
