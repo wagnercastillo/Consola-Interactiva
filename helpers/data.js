@@ -12,11 +12,11 @@ const leerData = () => {
         return null;
     }
     const lectura = JSON.parse(fs.readFileSync(direccion, { encoding: 'utf-8' }));
-    console.log(lectura);
-    return null;
-
+    
+    return lectura;
 
 }
+
 
 module.exports = {
     guardarDB,

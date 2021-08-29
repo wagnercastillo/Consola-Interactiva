@@ -8,9 +8,10 @@ const main = async () => {
 
 
     const tareas = new Tareas();
-    console.log(leerData());
+    // const lectura= leerData();
+    tareas.CargarTarea(leerData());
 
-    await pausa();
+
     let opcion = '';
 
 

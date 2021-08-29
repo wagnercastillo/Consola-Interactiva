@@ -24,6 +24,12 @@ class Tareas {
         this._listado[tarea.id] = tarea;
 
     }
+
+    CargarTarea(tareas = []) {
+        tareas.forEach(tarea => {
+            this._listado[tarea.id] = tarea;
+        })
+    }
 }
 
 
