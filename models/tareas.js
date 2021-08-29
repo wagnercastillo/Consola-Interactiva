@@ -1,22 +1,31 @@
-const Tarea= require('./tarea');
+const Tarea = require('./tarea');
 
 
-class Tareas{
+class Tareas {
 
-    _listado={};
+    _listado = {};
 
-    constructor(){
-        this._listado={};
+    constructor() {
+        this._listado = {};
     }
 
-    crearTarea(descripcion=''){
+    get getTareas() {
 
-        const tarea=new Tarea(descripcion);
-        this._listado[tarea.id]= tarea;
+        const listado = [];
+        Object.keys(this._listado).forEach(keys => {
+            listado.push(this._listado[keys]);
+        })
+        return listado;
+    }
+
+    crearTarea(descripcion = '') {
+
+        const tarea = new Tarea(descripcion);
+        this._listado[tarea.id] = tarea;
 
     }
 }
 
 
 
-module.exports=Tareas;
+module.exports = Tareas;

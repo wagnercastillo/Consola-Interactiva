@@ -2,6 +2,7 @@ require('colors');
 
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
+const { guardarDB } = require('./helpers/data')
 const main = async () => {
 
 
@@ -17,10 +18,12 @@ const main = async () => {
                 console.log(entrada);
                 break;
             case '2':
-                console.log(tareas._listado);
+                console.log(tareas.getTareas);
                 break;
 
         }
+
+        guardarDB(tareas.getTareas);
 
         await pausa();
 
