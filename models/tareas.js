@@ -31,7 +31,7 @@ class Tareas {
             this._listado[tarea.id] = tarea;
         })
     }
-    
+
 
     listadoCompleto() {
         console.log();
@@ -66,9 +66,14 @@ class Tareas {
                 }
             }
 
-
-
         });
+
+    }
+
+    borrarTarea(id = '') {
+        if (this._listado[id]) {
+            delete this._listado[id];
+        }
     }
 }
 
