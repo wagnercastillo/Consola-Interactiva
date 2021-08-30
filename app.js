@@ -6,14 +6,9 @@ const { guardarDB, leerData } = require('./helpers/data')
 
 const main = async () => {
 
-
     const tareas = new Tareas();
-    // const lectura= leerData();
     tareas.CargarTarea(leerData());
-
-
     let opcion = '';
-
 
     do {
         opcion = await inquirerMenu();
@@ -24,17 +19,21 @@ const main = async () => {
                 console.log(entrada);
                 break;
             case '2':
-                console.log(tareas.getTareas);
+                console.log(tareas.listadoCompleto());
+                break;
+            case '3':
+                console.log(tareas.listarTareasCompletadas());
+                break;
+            case '4':
+                console.log(tareas.listarTareasCompletadas(false));
                 break;
 
         }
 
         guardarDB(tareas.getTareas);
-
         await pausa();
 
     } while (opcion !== '0');
-
 
 }
 

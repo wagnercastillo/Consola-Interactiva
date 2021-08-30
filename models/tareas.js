@@ -1,9 +1,10 @@
 const Tarea = require('./tarea');
-
+require('colors');
 
 class Tareas {
 
     _listado = {};
+
 
     constructor() {
         this._listado = {};
@@ -29,6 +30,45 @@ class Tareas {
         tareas.forEach(tarea => {
             this._listado[tarea.id] = tarea;
         })
+    }
+    
+
+    listadoCompleto() {
+        console.log();
+        this.getTareas.forEach((tarea, i) => {
+            const idx = `${i}`.blue;
+            const { descripcion, completadoEn } = tarea;
+
+            const estado = (completadoEn) ? 'Completado'.yellow : 'Pendiente'.red
+            console.log(`${idx}. ${descripcion} - ${estado} `);
+        })
+
+    }
+
+    listarTareasCompletadas(Completado = true) {
+        console.log();
+        let cont = 1;
+        this.getTareas.forEach((tarea, i) => {
+
+            const { descripcion, completadoEn } = tarea;
+            const estado = (completadoEn) ? 'Completado'.yellow : 'Pendiente'.red
+            if (Completado) {
+
+                if (completadoEn) {
+                    console.log(`${(cont + '.').green} ${descripcion} - ${estado}`);
+                    cont += 1;
+                }
+            } else {
+
+                if (!completadoEn) {
+                    console.log(`${(cont + '.').green} ${descripcion} - ${estado}`);
+                    cont += 1;
+                }
+            }
+
+
+
+        });
     }
 }
 
